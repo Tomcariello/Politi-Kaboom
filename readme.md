@@ -18,32 +18,35 @@
 Game Plan:
 
 	Version.01: Proof of concept
-		Create object to drop bombs at the top of the screen.
-		Create user controlled object to "catch" the truth bombs. Object can go left/right
+		Done:
+			Add placeholder images for bomb dropper, background, buckets
+			Add core physics
 
-	Version.02: Make it suck less
-		Add collision detection to determine when a truth bomb is caught
-			Increment score on caught bomb
-		Add collision detection to determine when a truth bomb is missed (hits the ground)
-			Decrement number of lives or end game on missed bomb
-
-	Version.03: Add some flavor
+		To-Do:
+			Add player controls to barrel (left/right)
+			Add areas for scoreboard & status (lives?) meter 
+			Create object to drop bombs at a set interval at the top of the screen (trump).
+			Add collision detection to determine when a truth bomb is caught
+				(Increment score on caught bomb)
+			Add collision detection to determine when a truth bomb is missed (hits the ground)
+				Decrement number of lives or end game on missed bomb
+			
+	Version.02: Add some flavor
 		Add random side-to-side movement to bomb dropper
 		Increase bomb dropper speed per 'stage'
 		Add sound when bomb is caught
-		Add images for bomb dropper, background, buckets, scoreboard, status meter, etc
 
-	Version.04: Make this respectable
+	Version.05: Make this respectable
 		Add splash screen
 		Add main menu/start game screen (Return to this screen on game over)
 		Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
 
-	Version.05: Build a network
+	Version.07: Build a network
 		Add global high score screen
 		Add Facebook sharing
 		Pull quotes/skins/etc from central server to facilitate updating
 	
-	Version.06: Branch out
+	Version.09: Branch out
 		User selectable (liberal/conservative)
 		Add skins for Hillary Clinton, Bernie Sanders, whoever
 
