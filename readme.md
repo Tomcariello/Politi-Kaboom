@@ -21,16 +21,16 @@ Game Plan:
 		Done:
 			Add placeholder images for bomb dropper, background, buckets
 			Add core physics
+			Add player controls to barrel (left/right)
 
 		To-Do:
-			Add player controls to barrel (left/right)
-			Add areas for scoreboard & status (lives?) meter 
 			Create object to drop bombs at a set interval at the top of the screen (trump).
 			Add collision detection to determine when a truth bomb is caught
 				(Increment score on caught bomb)
 			Add collision detection to determine when a truth bomb is missed (hits the ground)
 				Decrement number of lives or end game on missed bomb
-			
+			Add areas for scoreboard & status (lives?) meter 
+
 	Version.02: Add some flavor
 		Add random side-to-side movement to bomb dropper
 		Increase bomb dropper speed per 'stage'
