@@ -22,9 +22,10 @@ Game Plan:
 			Add placeholder images for bomb dropper, background, buckets
 			Add core physics
 			Add player controls to barrel (left/right)
+			Create object to drop bombs at a set interval at the top of the screen (trump).
 
 		To-Do:
-			Create object to drop bombs at a set interval at the top of the screen (trump).
+			Normalize the bomb spawning
 			Add collision detection to determine when a truth bomb is caught
 				(Increment score on caught bomb)
 			Add collision detection to determine when a truth bomb is missed (hits the ground)

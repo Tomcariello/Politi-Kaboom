@@ -3,8 +3,14 @@
 var bomb_Prefab : GameObject;
 
 function Start () {
+    //if (Time.timeSinceLevelLoad >= 5) {
+        for (var i=0; i < 10; i++) {
+            Instantiate(bomb_Prefab, transform.position, transform.rotation);
+        }
+    
+    
 }
 
 function Update () {
-    Instantiate(bomb_Prefab, transform.position, transform.rotation);
+    
 }
