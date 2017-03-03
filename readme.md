@@ -23,14 +23,16 @@ Game Plan:
 			Add core physics
 			Add player controls to barrel (left/right)
 			Create object to drop bombs at a set interval at the top of the screen (trump).
+			Added barriers to keep barrel on the stage
+			Normalize the bomb spawning (1 second spread)
+			Add collision detection to determine when a truth bomb is caught
+			Add collision detection to determine when a truth bomb is missed (hits the ground)
 
 		To-Do:
-			Normalize the bomb spawning
-			Add collision detection to determine when a truth bomb is caught
-				(Increment score on caught bomb)
-			Add collision detection to determine when a truth bomb is missed (hits the ground)
-				Decrement number of lives or end game on missed bomb
-			Add areas for scoreboard & status (lives?) meter 
+			Add areas for scoreboard & status (lives?) meter
+			Increment score on caught bomb
+			Decrement number of lives or end game on missed bomb
+			
 
 	Version.02: Add some flavor
 		Add random side-to-side movement to bomb dropper
