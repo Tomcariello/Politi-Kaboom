@@ -27,15 +27,17 @@ Game Plan:
 			Normalize the bomb spawning (1 second spread)
 			Add collision detection to determine when a truth bomb is caught
 			Add collision detection to determine when a truth bomb is missed (hits the ground)
+			Add random side-to-side movement to bomb dropper
+			Added movement to the Trump sprite
+			Moved bomb spawner onto the Trump sprite. Looks like Trump is dropping bombs!
+			
 
 		To-Do:
 			Add areas for scoreboard & status (lives?) meter
 			Increment score on caught bomb
 			Decrement number of lives or end game on missed bomb
 			
-
 	Version.02: Add some flavor
-		Add random side-to-side movement to bomb dropper
 		Increase bomb dropper speed per 'stage'
 		Add sound when bomb is caught
 
