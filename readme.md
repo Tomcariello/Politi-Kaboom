@@ -30,6 +30,7 @@ Game Plan:
 			Add random side-to-side movement to bomb dropper
 			Added movement to the Trump sprite
 			Moved bomb spawner onto the Trump sprite. Looks like Trump is dropping bombs!
+			Move the bomb spawner position 1f lower
 			
 
 		To-Do:
