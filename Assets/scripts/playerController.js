@@ -1,7 +1,12 @@
 ﻿#pragma strict
 
+//UnityEngine.UI;
+//initialize variable to hold the score
+var score = 0;
+var scoreText;
+
 function Start () {
-	
+    scoreText = UnityEngine.UI.Text;
 }
 
 function Update () {
@@ -18,8 +23,10 @@ function Update () {
 function OnCollisionEnter2D (coll: Collision2D) {
     // Debug.Log('Something collided with the barrel!');
 
-    if(coll.gameObject.name == "bomb_Prefab(Clone)")
-    {
+    if(coll.gameObject.name == "bomb_Prefab(Clone)") {
         Destroy(coll.gameObject);
+        score = score + 1;
+        scoreText = "Updated Score: " + score;
+        Debug.Log("scoreText is " + scoreText);
     }
 }

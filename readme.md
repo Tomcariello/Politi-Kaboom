@@ -31,11 +31,13 @@ Game Plan:
 			Added movement to the Trump sprite
 			Moved bomb spawner onto the Trump sprite. Looks like Trump is dropping bombs!
 			Move the bomb spawner position 1f lower
-			
+			Updated White House Image
+			Started to build scoreboard on the bottom of the screen.
+			Increment score on caught bomb (behind the scenes)
 
 		To-Do:
-			Add areas for scoreboard & status (lives?) meter
-			Increment score on caught bomb
+			Increment scoreboard Properly
+			Indicate & increment/decrement status (lives?) meter
 			Decrement number of lives or end game on missed bomb
 			Fix Bug: Trump sometimes leaves the viewable area
 			
