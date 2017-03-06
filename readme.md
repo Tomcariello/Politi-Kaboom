@@ -36,6 +36,7 @@ Game Plan:
 			Add areas for scoreboard & status (lives?) meter
 			Increment score on caught bomb
 			Decrement number of lives or end game on missed bomb
+			Fix Bug: Trump sometimes leaves the viewable area
 			
 	Version.02: Add some flavor
 		Increase bomb dropper speed per 'stage'
