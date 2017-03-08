@@ -1,12 +1,10 @@
 ﻿#pragma strict
-public var scoreBoard;
-var x = 0;
-var ScoreKeeperScript: ScoreKeeper;
+
+//score variable to be read by the canvas to update the scoreboard
+public var score = 0;
 
 function Start () {
-    ScoreKeeperScript = gameObject.GetComponent(ScoreKeeper);
-    scoreBoard = GameObject.Find("ScoreText").GetComponent("Text");
-    Debug.Log("scoreBoard is " + scoreBoard);
+    
 }
 
 function Update () {
@@ -23,6 +21,8 @@ function Update () {
 function OnCollisionEnter2D (coll: Collision2D) {
     if(coll.gameObject.name == "bomb_Prefab(Clone)") {
         Destroy(coll.gameObject);
+        score++;
+        Debug.Log(score);
     }
 
     // ScoreKeeperScript.ScoreText.text = "updated from playercontroller script";
