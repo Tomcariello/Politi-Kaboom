@@ -7,9 +7,9 @@ var ScoreText : UI.Text; //Link to UI text element
 var ScoreBoard; //Contains string for scoreboard element
 
 function Start () {
-    ScoreText = GetComponent(UI.Text);
+    // Create link to the ScoreBoard_Display object so we can target the Text component
+    ScoreText = GameObject.FindWithTag("ScoreBoard_Display").GetComponent(Text);
     ScoreText.text = "Testing text updated on start";
-
 }
 
 function Update () {

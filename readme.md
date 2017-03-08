@@ -34,9 +34,9 @@ Game Plan:
 			Started to build scoreboard on the bottom of the screen.
 			Increment score on caught bomb (behind the scenes)
 			Increment scoreboard Properly; (figured out sharing variables across scripts!)
+			Indicate & increment/decrement status (lives?) meter
 
 		To-Do:
-			Indicate & increment/decrement status (lives?) meter
 			Decrement number of lives or end game on missed bomb
 			Make Trump Sprite's movements more robust
 			

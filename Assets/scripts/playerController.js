@@ -4,6 +4,7 @@
 public var score = 0;
 
 function Start () {
+
     
 }
 
@@ -22,8 +23,5 @@ function OnCollisionEnter2D (coll: Collision2D) {
     if(coll.gameObject.name == "bomb_Prefab(Clone)") {
         Destroy(coll.gameObject);
         score++;
-        Debug.Log(score);
     }
-
-    // ScoreKeeperScript.ScoreText.text = "updated from playercontroller script";
 }
