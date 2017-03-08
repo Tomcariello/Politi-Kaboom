@@ -34,11 +34,17 @@ Game Plan:
 			Started to build scoreboard on the bottom of the screen.
 			Increment score on caught bomb (behind the scenes)
 			Increment scoreboard Properly; (figured out sharing variables across scripts!)
-			Indicate & increment/decrement status (lives?) meter
+			Indicate & decrement status (lives) meter
+			Abstracted the bomb dropping for better control as levels get created. You can control the number of bombs & the bomb interval in the function call.
+			Adjusted the game setup. Bombs will drop once the user presses "SPACEBAR". After catching all the bombs, press SPACEBAR again to trigger the next wave of bombs.
 
 		To-Do:
-			Decrement number of lives or end game on missed bomb
+			End game/Session on missed bomb. 
+				If NOT game over: terminate all bombs, stop dropping bombs (or freeze/explode barrel & speed up the rest of that session)
+				If game over: same as above, dim the screen, reset to initial screen/score/lives
 			Make Trump Sprite's movements more robust
+			Fix the Barrel sprite to remove the white in the image
+			Make it so the Barrel cannot topple over (this happened to me once; I'll try to recreate it [Tom])
 			
 	Version.02: Add some flavor
 		Add sound when bomb is caught

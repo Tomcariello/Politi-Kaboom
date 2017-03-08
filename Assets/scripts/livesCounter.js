@@ -15,5 +15,4 @@ function Start () {
 function Update () {
 	var LivesCount = GameObject.FindWithTag("Ground").GetComponent(ground_detection);
 	LivesText.text = "Lives: " + LivesCount.livesLeft;
-	Debug.Log("LivesCount.livesLeft is ");
 }

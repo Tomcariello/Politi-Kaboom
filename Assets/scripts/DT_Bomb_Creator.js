@@ -1,10 +1,23 @@
 ﻿#pragma strict
 
 var bomb_Prefab : GameObject;
+var isRunning = false; //marker to determine if bombs are already being dropped
 
 function Start () {
 
-    for (var i=0; i < 15; i++) {
+}
+
+function Update () {
+	if (isRunning == false && Input.GetKey (KeyCode.Space)) {
+		isRunning = true;	
+        //Call the function to drop bombs (how many bombs to drop, seconds to wait between bombs)
+		StartDroppingBombs(25, .6);
+	}
+}
+
+function StartDroppingBombs(numberOfBombsToDrop : int, interval : float) {
+	
+	for (var i=0; i < numberOfBombsToDrop; i++) {
 
     	// Set random values to move Donald around
 		var randomSelectDirection = Random.Range(-1f, 1f);
@@ -13,8 +26,9 @@ function Start () {
 		//Get the current position of the Trump Sprite		
 		var DT = GameObject.FindGameObjectWithTag("Trump_Bomber").transform.position;
 		
-		//if <0 move Donald LEFT
 		//Re-write as seperate function once sorted out
+		
+		//if <0 move Donald LEFT
 		if (randomSelectDirection < 0) {
 			if (DT.x - randomSelectDistance < 0) {
 				randomSelectDistance = randomSelectDistance * -1;
@@ -33,16 +47,13 @@ function Start () {
 			}
 		}
 
-		//adjust the DT position 1F down on the y axis. This will spawn the bomb below Trump
+		//Create a vector that is Trump's position but 1F lower on the y axis.
+		//This will spawn the bomb below Trump
 		DT.y-=1f;
 
-        //Creates bombs directly below the Trump sprite
+        //Creates bombs at the location determined above
         Instantiate(bomb_Prefab, DT, transform.rotation);
-        yield WaitForSeconds(1);
+        yield WaitForSeconds(interval);
     }
+    isRunning = false;
 }
-
-function Update () {
-
-}
-
