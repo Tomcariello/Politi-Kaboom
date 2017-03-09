@@ -37,32 +37,31 @@ Game Plan:
 			Indicate & decrement status (lives) meter
 			Abstracted the bomb dropping for better control as levels get created. You can control the number of bombs & the bomb interval in the function call.
 			Adjusted the game setup. Bombs will drop once the user presses "SPACEBAR". After catching all the bombs, press SPACEBAR again to trigger the next wave of bombs.
+			End session on missed bomb. 
+				If NOT game over: terminate all bombs, stop dropping bombs
+				If game over, reset the game (Melissa)
+			Add multiple stages (if you catch all of the bombs, press space bar to keep going)
 
 		To-Do:
-			End game/Session on missed bomb. 
-				If NOT game over: terminate all bombs, stop dropping bombs (or freeze/explode barrel & speed up the rest of that session)
-				If game over: same as above, dim the screen, reset to initial screen/score/lives
 			Make Trump Sprite's movements more robust
-			Fix the Barrel sprite to remove the white in the image
-			Make it so the Barrel cannot topple over (this happened to me once; I'll try to recreate it [Tom])
+			Remove the white from the Barrel sprite image (Tom-doing this today)
+			Make it so the Barrel cannot topple over (this happened to me once; I'll try to recreate it -Tom)
+
 			
 	Version.02: Add some flavor
-		Add sound when bomb is caught
-		Insert Cut Screen (or something) in between stages; be funny (dammit)
-		Add main menu/start game screen (Return to this screen on game over)
-
-	Version.05: Make this respectable
 		Add splash screen
+		Add main menu/start game screen (Return to this screen on game over)
 		Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
-		Add multiple stages (press space bar to start after Trump takes a break?)
-			Increase bomb dropper speed per 'stage'
-			Increase number of bombs dropped per 'stage'
+		Insert Cut Screen (or something) in between stages; be funny (dammit)
+		Add sound when bomb is caught
+		Increase bomb dropper speed per 'stage'
+		Increase number of bombs dropped per 'stage'
 		
-	Version.07: Branch out
+	Version.05: Branch out
 		User selectable (liberal/conservative)
 		Add skins for Hillary Clinton, Bernie Sanders, whoever
 	
-	Version.09: Build a network
+	Version.06: Build a network
 		Add global high score screen
 		Add Facebook sharing
 		Pull quotes/skins/etc from central server to facilitate updating

@@ -17,5 +17,14 @@ function OnCollisionEnter2D (coll: Collision2D) {
     if(coll.gameObject.name == "bomb_Prefab(Clone)") {
         Destroy(coll.gameObject);
         livesLeft--;
+        
+        //Identify all bombs & destroy them
+        var getAllBombs = GameObject.FindGameObjectsWithTag("bomb");
+    	Debug.Log("getAllBombs is " + getAllBombs.length);
+    	for (var i = 0; i < getAllBombs.length; i++) {
+    		Destroy(getAllBombs[i]);	
+    	}
+    	
+
     }
 }
