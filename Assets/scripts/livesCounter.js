@@ -5,6 +5,7 @@ import UnityEngine.UI;
 var numberOfLivesLeft = 0;
 var LivesText : UI.Text; //Link to UI text element
 var LivesTextString; //Contains string for scoreboard element
+private var anim : Animator; 
 
 function Start () {
     // Create link to the Lives_Display object so we can target the Text component
@@ -12,7 +13,12 @@ function Start () {
     LivesText.text = "Testing text updated on start";
 }
 
+
 function Update () {
 	var LivesCount = GameObject.FindWithTag("Ground").GetComponent(ground_detection);
 	LivesText.text = "Lives: " + LivesCount.livesLeft;
+
+    if(LivesCount.livesLeft <= 0){
+      Application.LoadLevel(Application.loadedLevel);
+    }
 }
