@@ -41,11 +41,11 @@ Game Plan:
 				If NOT game over: terminate all bombs, stop dropping bombs
 				If game over, reset the game (Melissa)
 			Add multiple stages (if you catch all of the bombs, press space bar to keep going)
+			Remove the white from the Barrel sprite image
 
 		To-Do:
-			Make Trump Sprite's movements more robust
-			Remove the white from the Barrel sprite image (Tom-doing this today)
-			Make it so the Barrel cannot topple over (this happened to me once; I'll try to recreate it -Tom)
+			Make Trump Sprite's movements more robust (animate!)
+			Make it so the Barrel cannot topple over (this happens as things speed up. Can we increase the barrel weight?)
 
 			
 	Version.02: Add some flavor
