@@ -6,6 +6,7 @@ var bomb_Prefab : GameObject; // creates a reference to the bomb_prefab (to be a
 var bomber : GameObject; // creates a reference to the bomber (to be assigned in unity GUI)
 var background : GameObject; //creates a reference to the background (to be assigned in unity GUI)
 var barrel : GameObject; //creates a reference to the barrel (to be assigned in unity GUI)
+var soundEffect : GameObject; //creates a reference to the barrel (to be assigned in unity GUI)
 
 //Initial Game Variables
 var isRunning = false; //marker to determine if bombs are already being dropped. This prevents the function running concurrently with itself
@@ -27,18 +28,23 @@ function Start () {
 	var enemyBomberSpriteString = "bomber_images/bomber_" + enemy;
 	var enemyBackgroundSpriteString = "background_images/background_" + enemy;
 	var enemyBarrelSpriteString = "barrel_images/barrel_" + enemy;
+	var enemySoundEffectString = "bomb_caught_audio/bombcaught_" + enemy;
 
 	//Identify the target bomb sprite using the string gnerated above
 	var enemyBombSprite = Resources.LoadAll(enemyBombSpriteString);
 	var enemyBomberSprite = Resources.LoadAll(enemyBomberSpriteString);
 	var enemyBackgroundSprite = Resources.LoadAll(enemyBackgroundSpriteString);
 	var enemyBarrelSprite = Resources.LoadAll(enemyBarrelSpriteString);
+	var enemySoundEffect = Resources.LoadAll(enemySoundEffectString);
+
+	Debug.Log("enemySoundEffect length is " + enemySoundEffect.length);
 
 	//Assign the correct enemy bomb to the bomb_prefab
 	bomb_Prefab.GetComponent.<SpriteRenderer>().sprite = enemyBombSprite[1];
 	bomber.GetComponent.<SpriteRenderer>().sprite = enemyBomberSprite[1];
 	background.GetComponent.<SpriteRenderer>().sprite = enemyBackgroundSprite[1];
 	barrel.GetComponent.<SpriteRenderer>().sprite = enemyBarrelSprite[1];
+	soundEffect.GetComponent.<AudioSource>().clip = enemySoundEffect[0];
 
 }
 
