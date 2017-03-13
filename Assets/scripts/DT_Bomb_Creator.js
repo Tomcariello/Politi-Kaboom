@@ -4,19 +4,31 @@ import UnityEngine.UI;
 
 var bomb_Prefab : GameObject; //reference to the bomb_prefab element
 
+//Initial Game Variables
 var isRunning = false; //marker to determine if bombs are already being dropped. This prevents the function running concurrently with itself
 var numberOfLives = 3; //A variable to keep in sync with the lives counter. This allows to stop dropping bombs when one is missed.
+var numBombs = 25; //Set number of bombs to drop on initial stage
+var bombTiming = .5; //Set speed to drop bombs on initial stage
+var enemyList = ["trump","hillary"];
 
-var numBombs = 25; //Set number of bombs to drop on initial screen
-var bombTiming = .5; //Set speed to drop bombs on initial screen
+//Per game dynamic values
+var enemy;
 
 function Start () {
-	//Load all sprites in the Resources/bomb_images folder into an array
-	var bombDropperSprites: Object[] = Resources.LoadAll("bomb_images");
-	//NOTE: Hillary's bomb sprite is currently bomDropperSprites[1]
 
-	//Update the bomb sprite to reflect the current character's weapon
+	//Identify the enemy & load the appropriate sprite for the bomb 
+	//Who is the enemy? Randomly select one from the array
+	enemy = enemyList[Random.Range(0,2)];
+	
+	//Generate the path & filename of the required bomb
+	var targetSprite = "bomb_images/bomb_" + enemy;
+
+	//Identify the target bomb sprite using the string gnerated above
+	var bombDropperSprites = Resources.LoadAll(targetSprite);
+
+	//Assign the correct enemy bomb to the bomb_prefab
 	bomb_Prefab.GetComponent.<SpriteRenderer>().sprite = bombDropperSprites[1];
+
 }
 
 function Update () {
