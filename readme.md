@@ -42,6 +42,7 @@ Game Plan:
 				If game over, reset the game (Melissa)
 			Add multiple stages (if you catch all of the bombs, press space bar to keep going)
 			Remove the white from the Barrel sprite image
+			Beginning framework for changing elements (currently just Hillary/Trump and just the bomb changes)
 
 		To-Do:
 			Make Trump Sprite's movements more robust (animate!)
