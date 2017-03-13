@@ -1,21 +1,21 @@
 ﻿#pragma strict
-
+import UnityEngine.AudioSource;
 //score variable to be read by the canvas to update the scoreboard
 public var score = 0;
+var bombCaughtSound : AudioSource;
 
-function Start () {
-
-    
+function Start() {
+    bombCaughtSound = GetComponent.<AudioSource>();
 }
 
 function Update () {
 	//move barrel as per player input
     if ((Input.GetKey (KeyCode.RightArrow)) || (Input.GetKey (KeyCode.D))) {
-        transform.Translate(Vector2.right * 6f * Time.deltaTime);
+        transform.Translate(Vector2.right * 10f * Time.deltaTime);
     }
 
     if ((Input.GetKey (KeyCode.LeftArrow)) || (Input.GetKey (KeyCode.A))) {
-        transform.Translate(-Vector2.right * 6f * Time.deltaTime);
+        transform.Translate(-Vector2.right * 10f * Time.deltaTime);
     }
 }
 
@@ -26,6 +26,10 @@ function OnCollisionEnter2D (coll: Collision2D) {
         Destroy(coll.gameObject);
         //increment the score
         score++;
+        //Play Sound
+        bombCaughtSound.Play();
+        bombCaughtSound.Play(44100);
+
     }
    
 }
