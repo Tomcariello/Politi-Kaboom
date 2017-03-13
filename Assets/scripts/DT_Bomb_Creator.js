@@ -35,7 +35,6 @@ function StartDroppingBombs(numberOfBombsToDrop : int, interval : float) {
 
 		//Get the current number of lives
 		var LivesCount = GameObject.FindWithTag("Ground").GetComponent(ground_detection);
-		Debug.Log("LivesCount is " + LivesCount.livesLeft + " numberOfLives is " + numberOfLives);
 		
 		//If numberOfLives (static var in this script) is equal to lifecount, than a bomb hasn't been missed yet.
 		if (numberOfLives == LivesCount.livesLeft) {

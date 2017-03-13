@@ -18,7 +18,7 @@ function OnCollisionEnter2D (coll: Collision2D) {
         livesLeft--;
         
         //Identify all bombs & destroy them
-        var getAllBombs = GameObject.FindGameObjectsWithTag("bomb");
+        var getAllBombs = GameObject.FindGameObjectsWithTag("bomb_prefab");
     	for (var i = 0; i < getAllBombs.length; i++) {
     		Destroy(getAllBombs[i]);	
     	}
