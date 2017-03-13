@@ -3,6 +3,7 @@
 import UnityEngine.UI;
 
 var bomb_Prefab : GameObject; //reference to the bomb_prefab element
+var bomber : GameObject;
 
 //Initial Game Variables
 var isRunning = false; //marker to determine if bombs are already being dropped. This prevents the function running concurrently with itself
@@ -16,18 +17,23 @@ var enemy;
 
 function Start () {
 
-	//Identify the enemy & load the appropriate sprite for the bomb 
+	//Identify the enemy & load the appropriate sprites
+
 	//Who is the enemy? Randomly select one from the array
 	enemy = enemyList[Random.Range(0,2)];
+	Debug.Log('Your enemy is ' + enemy);
 	
-	//Generate the path & filename of the required bomb
-	var targetSprite = "bomb_images/bomb_" + enemy;
+	//Generate the path & filename of the required sprites
+	var enemyBombSpriteString = "bomb_images/bomb_" + enemy;
+	var enemyBomberSpriteString = "bomber_images/bomber_" + enemy;
 
 	//Identify the target bomb sprite using the string gnerated above
-	var bombDropperSprites = Resources.LoadAll(targetSprite);
+	var enemyBombSprite = Resources.LoadAll(enemyBombSpriteString);
+	var enemyBomberSprite = Resources.LoadAll(enemyBomberSpriteString);
 
 	//Assign the correct enemy bomb to the bomb_prefab
-	bomb_Prefab.GetComponent.<SpriteRenderer>().sprite = bombDropperSprites[1];
+	bomb_Prefab.GetComponent.<SpriteRenderer>().sprite = enemyBombSprite[1];
+	bomber = GetComponent.<SpriteRenderer>().sprite = enemyBomberSprite[1];
 
 }
 
