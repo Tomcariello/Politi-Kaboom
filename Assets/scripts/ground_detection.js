@@ -12,19 +12,15 @@ function Update () {
 }
 
 function OnCollisionEnter2D (coll: Collision2D) {
-    // Debug.Log('Something collided with the barrel!');
-
+    //if the ground collides with a created bomb
     if(coll.gameObject.name == "bomb_Prefab(Clone)") {
         Destroy(coll.gameObject);
         livesLeft--;
         
         //Identify all bombs & destroy them
-        var getAllBombs = GameObject.FindGameObjectsWithTag("bomb");
-    	Debug.Log("getAllBombs is " + getAllBombs.length);
+        var getAllBombs = GameObject.FindGameObjectsWithTag("bomb_prefab");
     	for (var i = 0; i < getAllBombs.length; i++) {
     		Destroy(getAllBombs[i]);	
     	}
-    	
-
     }
 }
