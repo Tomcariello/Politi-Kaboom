@@ -2,7 +2,7 @@
 
 import UnityEngine.UI;
 
-var bomb_Prefab : GameObject;
+var bomb_Prefab : GameObject; //reference to the bomb_prefab element
 
 var isRunning = false; //marker to determine if bombs are already being dropped. This prevents the function running concurrently with itself
 var numberOfLives = 3; //A variable to keep in sync with the lives counter. This allows to stop dropping bombs when one is missed.
@@ -11,17 +11,12 @@ var numBombs = 25; //Set number of bombs to drop on initial screen
 var bombTiming = .5; //Set speed to drop bombs on initial screen
 
 function Start () {
+	//Load all sprites in the Resources/bomb_images folder into an array
+	var bombDropperSprites: Object[] = Resources.LoadAll("bomb_images");
+	//NOTE: Hillary's bomb sprite is currently bomDropperSprites[1]
 
-	//Update the bomb sprite to reflect the current character
-	// var LivesText : UI.Text; //Link to UI text element
- //    LivesText = GameObject.FindWithTag("Lives_Display").GetComponent(Text);
- //    LivesText.text = "Testing text updated on start";
-	
-
-  // the line below causes the trump sprite to disappear. Can I replace it with Hillary?
-	// GetComponent(SpriteRenderer).sprite = hillary_bomber;
-
-
+	//Update the bomb sprite to reflect the current character's weapon
+	bomb_Prefab.GetComponent.<SpriteRenderer>().sprite = bombDropperSprites[1];
 }
 
 function Update () {
@@ -40,6 +35,7 @@ function StartDroppingBombs(numberOfBombsToDrop : int, interval : float) {
 
 		//Get the current number of lives
 		var LivesCount = GameObject.FindWithTag("Ground").GetComponent(ground_detection);
+		Debug.Log("LivesCount is " + LivesCount.livesLeft + " numberOfLives is " + numberOfLives);
 		
 		//If numberOfLives (static var in this script) is equal to lifecount, than a bomb hasn't been missed yet.
 		if (numberOfLives == LivesCount.livesLeft) {
