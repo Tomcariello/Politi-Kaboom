@@ -2,8 +2,10 @@
 
 import UnityEngine.UI;
 
-var bomb_Prefab : GameObject; //reference to the bomb_prefab element
-var bomber : GameObject;
+var bomb_Prefab : GameObject; // creates a reference to the bomb_prefab (to be assigned in unity GUI)
+var bomber : GameObject; // creates a reference to the bomber (to be assigned in unity GUI)
+var background : GameObject; //creates a reference to the background (to be assigned in unity GUI)
+var barrel : GameObject; //creates a reference to the barrel (to be assigned in unity GUI)
 
 //Initial Game Variables
 var isRunning = false; //marker to determine if bombs are already being dropped. This prevents the function running concurrently with itself
@@ -16,24 +18,27 @@ var enemyList = ["trump","hillary"];
 var enemy;
 
 function Start () {
-
 	//Identify the enemy & load the appropriate sprites
-
-	//Who is the enemy? Randomly select one from the array
 	enemy = enemyList[Random.Range(0,2)];
 	Debug.Log('Your enemy is ' + enemy);
 	
 	//Generate the path & filename of the required sprites
 	var enemyBombSpriteString = "bomb_images/bomb_" + enemy;
 	var enemyBomberSpriteString = "bomber_images/bomber_" + enemy;
+	var enemyBackgroundSpriteString = "background_images/background_" + enemy;
+	var enemyBarrelSpriteString = "barrel_images/barrel_" + enemy;
 
 	//Identify the target bomb sprite using the string gnerated above
 	var enemyBombSprite = Resources.LoadAll(enemyBombSpriteString);
 	var enemyBomberSprite = Resources.LoadAll(enemyBomberSpriteString);
+	var enemyBackgroundSprite = Resources.LoadAll(enemyBackgroundSpriteString);
+	var enemyBarrelSprite = Resources.LoadAll(enemyBarrelSpriteString);
 
 	//Assign the correct enemy bomb to the bomb_prefab
 	bomb_Prefab.GetComponent.<SpriteRenderer>().sprite = enemyBombSprite[1];
-	bomber = GetComponent.<SpriteRenderer>().sprite = enemyBomberSprite[1];
+	bomber.GetComponent.<SpriteRenderer>().sprite = enemyBomberSprite[1];
+	background.GetComponent.<SpriteRenderer>().sprite = enemyBackgroundSprite[1];
+	barrel.GetComponent.<SpriteRenderer>().sprite = enemyBarrelSprite[1];
 
 }
 
