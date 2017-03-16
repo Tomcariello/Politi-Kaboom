@@ -31,5 +31,4 @@ function OnCollisionEnter2D (coll: Collision2D) {
         bombCaughtSound.Play(44100);
 
     }
-   
 }
