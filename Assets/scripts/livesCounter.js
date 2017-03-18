@@ -17,8 +17,8 @@ function Update () {
 	var LivesCount = GameObject.FindWithTag("Ground").GetComponent(ground_detection);
 	LivesText.text = "Lives: " + LivesCount.livesLeft;
 
-	//Reload game when player runs out of lives
+	//Return to menu when out of lives
   if(LivesCount.livesLeft <= 0){
-     Application.LoadLevel(Application.loadedLevel);
+    Application.LoadLevel ("main_menu");
   }
 }

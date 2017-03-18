@@ -93,10 +93,7 @@ function StartDroppingBombs(numberOfBombsToDrop : int, interval : float) {
 			newBomberPosition.x = newBomberPosition.x - randomSelectDistance;
 
 			while (Vector3.Distance(transform.position, newBomberPosition) > 0.1f) {
-				// Debug.Log("distance is " + Vector2.Distance(transform.position, newBomberPosition));
 				transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 6f * Time.deltaTime);  
-				// Debug.Log("bomberPosition.x is " + bomberPosition.x);
-				// Debug.Log("newBomberPosition.x is " + newBomberPosition.x);	
 			}
 
 			
