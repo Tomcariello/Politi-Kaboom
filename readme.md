@@ -52,11 +52,12 @@ Game Plan:
 	Version.02: Add some flavor
 	Done: 
 		Add main menu/start game screen (Return to this screen on game over)
+		Make Bomber's Sprite's movements more robust (framework set, moving too fast)
+		Make it so the Barrel cannot topple over (keep an eye on this)
+		Add splash screen
 
 	To do:
 		Make Bomber's Sprite's movements more robust (animate!)
-		Make it so the Barrel cannot topple over (this happens as things speed up. Can we increase the barrel weight?)
-		Add splash screen
 		Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
 		Insert Cut Scene (or something) in between stages; be funny (dammit!)
 		
@@ -65,7 +66,7 @@ Game Plan:
 
 	To do:
 		User selectable (liberal/conservative)? Currently random.
-		Add skins for Hillary Clinton, Bernie Sanders, whoever
+		Add skins for Mike Pence, Bernie Sanders, whoever
 	
 	Version.06: Build a network
 	Done: 
