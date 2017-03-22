@@ -67,13 +67,12 @@ function Update () {
 //Coroutine to control the bomber's movement & animate smoothly (instead of snapping)
 function moveBomber(test) {
 
-	Debug.Log("coroutine running");
+	// Debug.Log("coroutine running");
 	moveBomberRunning = true;
 
     //Set random values to move bobmer around
 	var randomSelectDirection = Random.Range(0, 2);
 	var randomSelectDistance = Random.Range(-10f,10f);
-
 
 	//if moving left & too far left, reverse direction
 	if (randomSelectDirection < 1 && transform.position.x - randomSelectDistance < -4) {
@@ -87,16 +86,17 @@ function moveBomber(test) {
 	var newBomberPosition = transform.position;
 	newBomberPosition.x = newBomberPosition.x - randomSelectDistance;
 
-	Debug.Log(transform.position.x + " | " + newBomberPosition.x);
+	// Debug.Log(transform.position.x + " | " + newBomberPosition.x);
 
 	transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 60f * Time.deltaTime);
-	Debug.Log(transform.position.x + " | " + newBomberPosition.x);
+	// Debug.Log(transform.position.x + " | " + newBomberPosition.x);
 	
 	while(transform.position.x - newBomberPosition.x < 0.5f) {
 		// Debug.Log("In while statement...");
 		moveBomberRunning = false;
+		yield WaitForEndOfFrame;
 	}
-	yield WaitForEndOfFrame;
+	
 
 }
 
