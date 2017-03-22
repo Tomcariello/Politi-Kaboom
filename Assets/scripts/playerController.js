@@ -27,8 +27,6 @@ function OnCollisionEnter2D (coll: Collision2D) {
         //increment the score
         score++;
         //Play Sound
-        bombCaughtSound.Play();
-        bombCaughtSound.Play(44100);
-
+        bombCaughtSound.PlayDelayed(44100);
     }
 }
