@@ -72,10 +72,10 @@ function moveBomber(test) {
 
     //Set random values to move bobmer around
 	var randomSelectDirection = Random.Range(0, 2);
-	var randomSelectDistance = Random.Range(-10f,10f);
+	var randomSelectDistance = Random.Range(20f,40f);
 
 	//if moving left & too far left, reverse direction
-	if (randomSelectDirection < 1 && transform.position.x - randomSelectDistance < -4) {
+	if (randomSelectDirection < 1 && transform.position.x - randomSelectDistance < -2) {
 		randomSelectDistance = randomSelectDistance * -1;
 		//if moving right & too far right, reverse direction
 	} else if (randomSelectDirection > 0 && transform.position.x + randomSelectDistance < 34) {
@@ -86,13 +86,12 @@ function moveBomber(test) {
 	var newBomberPosition = transform.position;
 	newBomberPosition.x = newBomberPosition.x - randomSelectDistance;
 
-	// Debug.Log(transform.position.x + " | " + newBomberPosition.x);
+	transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 6f * Time.deltaTime);
 
-	transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 60f * Time.deltaTime);
 	// Debug.Log(transform.position.x + " | " + newBomberPosition.x);
-	
-	while(transform.position.x - newBomberPosition.x < 0.5f) {
-		// Debug.Log("In while statement...");
+	// Debug.Log(Mathf.Abs(transform.position.x - newBomberPosition.x));
+
+	while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
 		moveBomberRunning = false;
 		yield WaitForEndOfFrame;
 	}

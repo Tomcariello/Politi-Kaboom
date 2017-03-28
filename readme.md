@@ -55,6 +55,7 @@ Game Plan:
 		Make Bomber's Sprite's movements more robust (framework set, moving too fast)
 		Make it so the Barrel cannot topple over (keep an eye on this)
 		Add splash screen
+		Fixed bug where sometime the bomber does not move at all
 
 	To do:
 		Make Bomber's Sprite's movements more robust (animate!)
