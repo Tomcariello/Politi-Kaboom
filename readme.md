@@ -56,11 +56,13 @@ Game Plan:
 		Make it so the Barrel cannot topple over (keep an eye on this)
 		Add splash screen
 		Fixed bug where sometime the bomber does not move at all
+		Make Bomber's Sprite's movements more robust (Finally!)
+		Fix bug where bomber location dropped 1f everytime the user hit space (each round)
 
 	To do:
-		Make Bomber's Sprite's movements more robust (animate!)
 		Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
 		Insert Cut Scene (or something) in between stages; be funny (dammit!)
+
 		
 	Version.05: Branch out
 	Done: 

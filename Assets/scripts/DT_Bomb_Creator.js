@@ -60,53 +60,31 @@ function Update () {
 	}
 
 	if (moveBomberRunning == false) {
-		StartCoroutine(moveBomber(2.0));	
+		moveBomberRunning = true;
+		StartCoroutine(moveBomber());	
 	}
 }
 
 //Coroutine to control the bomber's movement & animate smoothly (instead of snapping)
-function moveBomber(test) {
+function moveBomber() {
 
-	// Debug.Log("coroutine running");
-	moveBomberRunning = true;
-
-    //Set random values to move bobmer around
-	var randomSelectDirection = Random.Range(0, 2);
-	var randomSelectDistance = Random.Range(20f,40f);
-
-	//if moving left & too far left, reverse direction
-	if (randomSelectDirection < 1 && transform.position.x - randomSelectDistance < -2) {
-		randomSelectDistance = randomSelectDistance * -1;
-		//if moving right & too far right, reverse direction
-	} else if (randomSelectDirection > 0 && transform.position.x + randomSelectDistance < 34) {
-		randomSelectDistance = randomSelectDistance * -1;
-	}
+	var randomSelectDestination = Random.Range(-4.0,38.0);
 
 	//Execute bomber movement
 	var newBomberPosition = transform.position;
-	newBomberPosition.x = newBomberPosition.x - randomSelectDistance;
-
-	transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 6f * Time.deltaTime);
-
-	// Debug.Log(transform.position.x + " | " + newBomberPosition.x);
-	// Debug.Log(Mathf.Abs(transform.position.x - newBomberPosition.x));
+	newBomberPosition.x = randomSelectDestination;
 
 	while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
-		moveBomberRunning = false;
-		yield WaitForEndOfFrame;
+		transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
+		yield WaitForEndOfFrame;	
 	}
-	
-
+	moveBomberRunning = false;
 }
 
 function StartDroppingBombs(numberOfBombsToDrop : int, interval : float) {
 	
-  //Enemy Audio
-  enemyBetweenRoundAudio.PlayDelayed(44100);
-
-	//Create a vector that is bomber's position but 1F lower on the y axis.
-	//This will spawn the bomb below the bomber
-	transform.position.y-=1f;
+	//Enemy Audio
+	enemyBetweenRoundAudio.PlayDelayed(44100);
 
 	//Drop a bomb depending on the numberOfBombsToDrop
 	for (var i=0; i < numberOfBombsToDrop; i++) {
@@ -117,8 +95,12 @@ function StartDroppingBombs(numberOfBombsToDrop : int, interval : float) {
 		//If numberOfLives (static var in this script) is equal to lifecount, than a bomb hasn't been missed yet.
 		if (numberOfLives == LivesCount.livesLeft) {
 		
+			//Create a vector that is bomber's position but 1F lower on the y axis.
+			var bombDropLocation = transform.position;
+			bombDropLocation.y-=1f;
+
 		    //create & drop the bomb
-		    Instantiate(bomb_Prefab, transform.position, transform.rotation);
+		    Instantiate(bomb_Prefab, bombDropLocation, transform.rotation);
 
 		    //wait in between bombs based on interval value
 		    yield WaitForSeconds(interval);
@@ -130,6 +112,7 @@ function StartDroppingBombs(numberOfBombsToDrop : int, interval : float) {
 	  		break;
 	  	}
 	}
+
   	//Update flag so the game knows bombs are no longer being dropped
   	isRunning = false;
 
