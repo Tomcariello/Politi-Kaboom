@@ -11,7 +11,7 @@ var soundEffect : GameObject; //creates a reference to the barrel (to be assigne
 var enemyBetweenRoundAudio : AudioSource;
 
 //Initial Game Variables
-var isRunning = false; //marker to determine if bombs are already being dropped. This prevents the function running concurrently with itself
+var bombsAreBeingDropped = false; //marker to determine if bombs are already being dropped. This prevents the function running concurrently with itself
 var numberOfLives = 3; //A variable to keep in sync with the lives counter. This allows to stop dropping bombs when one is missed.
 var numBombs = 25; //Set number of bombs to drop on initial stage
 var bombTiming = .5; //Set speed to drop bombs on initial stage
@@ -53,13 +53,13 @@ function Start () {
 
 function Update () {
 	//If bombs are not being dropped & the user presses spacebar, call the function
-	if (isRunning == false && Input.GetKey (KeyCode.Space)) {
-		isRunning = true;	
+	if (bombsAreBeingDropped == false && Input.GetKey (KeyCode.Space)) {
+		bombsAreBeingDropped = true;	
     //Call the function to drop bombs (how many bombs to drop, seconds to wait between bombs)
 		StartDroppingBombs(numBombs, bombTiming);
 	}
 
-	if (moveBomberRunning == false) {
+	if (moveBomberRunning == false && bombsAreBeingDropped == true) {
 		moveBomberRunning = true;
 		StartCoroutine(moveBomber());	
 	}
@@ -75,7 +75,9 @@ function moveBomber() {
 	newBomberPosition.x = randomSelectDestination;
 
 	while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
-		transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
+		if (bombsAreBeingDropped == true) {
+			transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
+		}
 		yield WaitForEndOfFrame;	
 	}
 	moveBomberRunning = false;
@@ -109,12 +111,14 @@ function StartDroppingBombs(numberOfBombsToDrop : int, interval : float) {
 		  	numberOfLives--;
 			//Slow down the bomg frequency
 			bombTiming = bombTiming + bombTiming * .1; 
+			bombsAreBeingDropped = false;
 	  		break;
 	  	}
 	}
 
+	//Level Cleared
   	//Update flag so the game knows bombs are no longer being dropped
-  	isRunning = false;
+  	bombsAreBeingDropped = false;
 
   	//increase bomb number & frequency
 	numBombs = numBombs + numBombs*.25; 

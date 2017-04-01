@@ -18,7 +18,6 @@
 Game Plan:
 
 	Version.01: Proof of concept
-	Done:
 		Add placeholder images for bomb dropper, background, buckets
 		Add core physics
 		Add player controls to barrel (left/right)
@@ -50,42 +49,47 @@ Game Plan:
 			
 
 	Version.02: Add some flavor
-	Done: 
-		Add main menu/start game screen (Return to this screen on game over)
-		Make Bomber's Sprite's movements more robust (framework set, moving too fast)
-		Make it so the Barrel cannot topple over (keep an eye on this)
-		Add splash screen
-		Fixed bug where sometime the bomber does not move at all
-		Make Bomber's Sprite's movements more robust (Finally!)
-		Fix bug where bomber location dropped 1f everytime the user hit space (each round)
+		Done: 
+			Add main menu/start game screen (Return to this screen on game over)
+			Make Bomber's Sprite's movements more robust (framework set, moving too fast)
+			Add splash screen
+			Fixed bug where sometime the bomber does not move at all
+			Make Bomber's Sprite's movements more robust (Finally!)
+			Fix bug where bomber location (height) decreased 1f everytime the user hit space (each round)
+			Fixed logic so the bomber only moves while bombs are being dropped
 
-	To do:
-		Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
-		Insert Cut Scene (or something) in between stages; be funny (dammit!)
-
-		
-	Version.05: Branch out
-	Done: 
-
-	To do:
-		User selectable (liberal/conservative)? Currently random.
-		Add skins for Mike Pence, Bernie Sanders, whoever
-	
-	Version.06: Build a network
-	Done: 
+		To do:
+			Make it so the Barrel cannot topple over
 
 
-	To do:
-		Add global high score screen
-		Add Facebook sharing
-		Pull quotes/skins/etc from central server to facilitate updating
+	Version.04: Add some stlye
+		To do:
+			Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
+			Insert Cut Scene (or something) in between stages; be funny (dammit!)
+			Allow user selectable politics (liberal/conservative). Currently random.
+			Select better sounds & apply default sounds to each character.
+
+
+	Version.05: Build a network
+		Done: 
+
+
+		To do:
+			Add global high score screen
+			Add Facebook sharing
+
+
 
 	Version.1: This is going to be an app, right?
-	Done: 
+		Done: 
 
 
-	To do:
-		Deploy to Android store
-		Deploy to Apple store
-		Deploy to Facebook
+		To do:
+			Deploy to Android store
+			Deploy to Apple store
+			Deploy to Facebook
 
+
+	Post V.1 goals:
+		Add skins for Mike Pence, Bernie Sanders, etc
+		Pull quotes/skins/etc from central server to facilitate updating to keep game fresh
