@@ -54,6 +54,7 @@
      <Compile Include="Assets\scripts\DT_Bomb_Creator.cs" />
      <Compile Include="Assets\scripts\ground_detection.cs" />
      <Compile Include="Assets\scripts\livesCounter.cs" />
+     <Compile Include="Assets\scripts\menuController.cs" />
      <Compile Include="Assets\scripts\playerController.cs" />
      <Compile Include="Assets\scripts\ScoreKeeper.cs" />
  <Reference Include="UnityEngine.UI">
