@@ -1,4 +1,5 @@
 # Politi-Kaboom
+# Version .02
 # Platform: Unity
 # By: Tom Cariello
 
@@ -17,58 +18,78 @@
 Game Plan:
 
 	Version.01: Proof of concept
-		Done:
-			Add placeholder images for bomb dropper, background, buckets
-			Add core physics
-			Add player controls to barrel (left/right)
-			Create object to drop bombs at a set interval at the top of the screen (trump).
-			Added barriers to keep barrel on the stage
-			Normalize the bomb spawning (1 second spread)
-			Add collision detection to determine when a truth bomb is caught
-			Add collision detection to determine when a truth bomb is missed (hits the ground)
-			Add random side-to-side movement to bomb dropper
-			Added movement to the Trump sprite
-			Moved bomb spawner onto the Trump sprite. Looks like Trump is dropping bombs!
-			Move the bomb spawner position 1f lower
-			Updated White House Image
-			Started to build scoreboard on the bottom of the screen.
-			Increment score on caught bomb (behind the scenes)
-			Increment scoreboard Properly; (figured out sharing variables across scripts!)
-			Indicate & decrement status (lives) meter
-			Abstracted the bomb dropping for better control as levels get created. You can control the number of bombs & the bomb interval in the function call.
-			Adjusted the game setup. Bombs will drop once the user presses "SPACEBAR". After catching all the bombs, press SPACEBAR again to trigger the next wave of bombs.
-			End session on missed bomb. 
-				If NOT game over: terminate all bombs, stop dropping bombs
-				If game over, reset the game (Melissa)
-			Add multiple stages (if you catch all of the bombs, press space bar to keep going)
-			Remove the white from the Barrel sprite image
-			Beginning framework for changing elements (currently just Hillary/Trump and just the bomb changes)
-
-		To-Do:
-			Make Trump Sprite's movements more robust (animate!)
-			Make it so the Barrel cannot topple over (this happens as things speed up. Can we increase the barrel weight?)
-
-			
-	Version.02: Add some flavor
-		Add splash screen
-		Add main menu/start game screen (Return to this screen on game over)
-		Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
-		Insert Cut Screen (or something) in between stages; be funny (dammit)
-		Add sound when bomb is caught
+		Add placeholder images for bomb dropper, background, buckets
+		Add core physics
+		Add player controls to barrel (left/right)
+		Create object to drop bombs at a set interval at the top of the screen (trump).
+		Added barriers to keep barrel on the stage
+		Normalize the bomb spawning (1 second spread)
+		Add collision detection to determine when a truth bomb is caught
+		Add collision detection to determine when a truth bomb is missed (hits the ground)
+		Add random side-to-side movement to bomb dropper
+		Added movement to the Trump sprite
+		Moved bomb spawner onto the Trump sprite. Looks like Trump is dropping bombs!
+		Move the bomb spawner position 1f lower
+		Updated White House Image
+		Started to build scoreboard on the bottom of the screen.
+		Increment score on caught bomb (behind the scenes)
+		Increment scoreboard Properly; (figured out sharing variables across scripts!)
+		Indicate & decrement status (lives) meter
+		Abstracted the bomb dropping for better control as levels get created. You can control the number of bombs & the bomb interval in the function call.
+		Adjusted the game setup. Bombs will drop once the user presses "SPACEBAR". After catching all the bombs, press SPACEBAR again to trigger the next wave of bombs.
+		End session on missed bomb. 
+			If NOT game over: terminate all bombs, stop dropping bombs
+			If game over, reset the game
+		Add multiple stages (if you catch all of the bombs, press space bar to keep going)
+		Remove the white from the Barrel sprite image
+		Added framework for changing elements (bomber, bomb, background, barrel)
+		Added sound (non-player specific yet)
 		Increase bomb dropper speed per 'stage'
 		Increase number of bombs dropped per 'stage'
-		
-	Version.05: Branch out
-		User selectable (liberal/conservative)
-		Add skins for Hillary Clinton, Bernie Sanders, whoever
-	
-	Version.06: Build a network
-		Add global high score screen
-		Add Facebook sharing
-		Pull quotes/skins/etc from central server to facilitate updating
+			
+
+	Version.02: Add some flavor
+		Done: 
+			Add main menu/start game screen (Return to this screen on game over)
+			Make Bomber's Sprite's movements more robust (framework set, moving too fast)
+			Add splash screen
+			Fixed bug where sometime the bomber does not move at all
+			Make Bomber's Sprite's movements more robust (Finally!)
+			Fix bug where bomber location (height) decreased 1f everytime the user hit space (each round)
+			Fixed logic so the bomber only moves while bombs are being dropped
+
+		To do:
+			Make it so the Barrel cannot topple over
+
+
+	Version.04: Add some stlye
+		To do:
+			Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
+			Insert Cut Scene (or something) in between stages; be funny (dammit!)
+			Allow user selectable politics (liberal/conservative). Currently random.
+			Select better sounds & apply default sounds to each character.
+
+
+	Version.05: Build a network
+		Done: 
+
+
+		To do:
+			Add global high score screen
+			Add Facebook sharing
+
+
 
 	Version.1: This is going to be an app, right?
-		Deploy to Android store
-		Deploy to Apple store
-		Deploy to Facebook
+		Done: 
 
+
+		To do:
+			Deploy to Android store
+			Deploy to Apple store
+			Deploy to Facebook
+
+
+	Post V.1 goals:
+		Add skins for Mike Pence, Bernie Sanders, etc
+		Pull quotes/skins/etc from central server to facilitate updating to keep game fresh
