@@ -25,7 +25,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 		string enemy;
 
 		int selectEnemy = Random.Range(0,3);
-		enemy = enemyList[0];
+		enemy = enemyList[Random.Range(0,enemyList.Length)];
 		
 		//Generate the path & filename of the required sprites
 		string enemyBombSpriteString = "bomb_images/bomb_" + enemy;
@@ -68,7 +68,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 	// //Coroutine to control the bomber's movement & animate smoothly
 	IEnumerator moveBomber() {
 
-		float randomSelectDestination = Random.Range(-4.0f,38.0f);
+		float randomSelectDestination = Random.Range(-2.75f,15.5f);
 
 		//Execute bomber movement
 		Vector3 newBomberPosition = transform.position;
@@ -85,7 +85,6 @@ public class DT_Bomb_Creator : MonoBehaviour {
 	}
 
 	IEnumerator StartDroppingBombs(float numberOfBombsToDrop, float interval) {
-		Debug.Log("Bombs are dropping!!!!");
 
 		//Enemy Audio
 		enemyBetweenRoundAudio.PlayDelayed(44100);
