@@ -17,7 +17,7 @@
 
 Game Plan:
 
-	Version.01: Proof of concept
+	Version.01: Proof of concept (DONE)
 		Add placeholder images for bomb dropper, background, buckets
 		Add core physics
 		Add player controls to barrel (left/right)
@@ -48,47 +48,57 @@ Game Plan:
 		Increase number of bombs dropped per 'stage'
 			
 
-	Version.02: Add some flavor
-		Done: 
-			Add main menu/start game screen (Return to this screen on game over)
-			Make Bomber's Sprite's movements more robust (framework set, moving too fast)
-			Add splash screen
-			Fixed bug where sometime the bomber does not move at all
-			Make Bomber's Sprite's movements more robust (Finally!)
-			Fix bug where bomber location (height) decreased 1f everytime the user hit space (each round)
-			Fixed logic so the bomber only moves while bombs are being dropped
+	Version.02: Add some flavor (DONE)
+		Add main menu/start game screen (Return to this screen on game over)
+		Make Bomber's Sprite's movements more robust (framework set, moving too fast)
+		Add splash screen
+		Fixed bug where sometime the bomber does not move at all
+		Make Bomber's Sprite's movements more robust (Finally!)
+		Fix bug where bomber location (height) decreased 1f everytime the user hit space (each round)
+		Fixed logic so the bomber only moves while bombs are being dropped
+		Make it so the Barrel cannot topple over
 
+	Version.03: Add some basics
 		To do:
-			Make it so the Barrel cannot topple over
+			Add Studio splash screen
+			Add Main Menu
+			Allow user to select their specific enemy or left/right leaning enemy (or random)
+			Keep high score table
+
+		Done:
 
 
-	Version.04: Add some stlye
+	Version.04: Add some style
 		To do:
 			Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
 			Insert Cut Scene (or something) in between stages; be funny (dammit!)
-			Allow user selectable politics (liberal/conservative). Currently random.
-			Select better sounds & apply default sounds to each character.
-
-
-	Version.05: Build a network
+			Improve Sounds
+			Add Music
+			Improve Graphics
 		Done: 
 
-
+	Version.05: Build a network
 		To do:
-			Add global high score screen
+			Add *global* high score screen
 			Add Facebook sharing
 
+		Done: 
+
+	Version .06: Code Review
+		To do:
+		Improve file structure
+		Improve code (Create a Game Manager Singleton?)
+
+		Done: 
 
 
 	Version.1: This is going to be an app, right?
-		Done: 
-
-
 		To do:
 			Deploy to Android store
 			Deploy to Apple store
 			Deploy to Facebook
 
+		Done: 
 
 	Post V.1 goals:
 		Add skins for Mike Pence, Bernie Sanders, etc
