@@ -2,6 +2,7 @@ WindowsStandalone
 PlayerPath?
 C:/Git_Repositories/Politi-Kaboom/Politi-Kaboom_V.02.exe
 SceneListBegin?
+Assets/Scenes/StudioScreen.unity
 Assets/Scenes/main_menu.unity
 Assets/Scenes/Level_1.unity
 SceneListEnd?
@@ -117,6 +118,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+6ae3f7f42557bc6cdc2a290584c38c7f Assembly-CSharp.dll:.menuController
 da7f4dd0411fe8b96d1223810aa4fdc9 Assembly-CSharp.dll:.livesCounter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
@@ -153,4 +155,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 829701bd69bcb944e92a58f13e0dac98 Assembly-CSharp.dll:.playerController
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 38330de6ff18b7deb07b50d2641c827d Assembly-CSharp.dll:.ground_detection
-6ae3f7f42557bc6cdc2a290584c38c7f Assembly-CSharp.dll:.menuController

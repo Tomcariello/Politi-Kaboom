@@ -58,18 +58,20 @@ Game Plan:
 		Fixed logic so the bomber only moves while bombs are being dropped
 		Make it so the Barrel cannot topple over
 
-	Version.03: Add some basics
+	Version.03: Add scaffolding
 		To do:
-			Add Studio splash screen
-			Add Main Menu
 			Allow user to select their specific enemy or left/right leaning enemy (or random)
 			Keep high score table
 
 		Done:
-
+			Add Main Menu (and make options respond to clicks)
+			Build framework for Studio splash screen
+			Re-organized folder structure (which broke everything...)
+			Fixed the broken things from Version .03 (Need to read up on RESOURCES folder)
 
 	Version.04: Add some style
 		To do:
+			Add style to Studio splash screen
 			Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
 			Insert Cut Scene (or something) in between stages; be funny (dammit!)
 			Improve Sounds
