@@ -14,18 +14,25 @@ public class DT_Bomb_Creator : MonoBehaviour {
 	public AudioSource enemyBetweenRoundAudio;
 
 	//Initial Game Variables
-	public bool bombsAreBeingDropped = false; //marker to determine if bombs are already being dropped. This prevents the function running concurrently with itself
-	public int numberOfLives = 3; //A variable to keep in sync with the lives counter. This allows to stop dropping bombs when one is missed.
 	public float numBombs = 25; //Set number of bombs to drop on initial stage
 	public float bombTiming = .5f; //Set speed to drop bombs on initial stage
 	public bool moveBomberRunning = false; //track if the bomber is currently moving
-	public string[] enemyList = new string[] { "trump","hillary","putin" };
-	
+
 	void Start () {
 		string enemy;
 
-		int selectEnemy = Random.Range(0,3);
-		enemy = enemyList[Random.Range(0,enemyList.Length)];
+		//If user selected republican, play against trump
+		if (GameManager.instance.EnemyGroup == "republican") {
+			enemy = GameManager.instance.enemyList[0];
+		//If user selected democrat, play against Hillary
+		} else if (GameManager.instance.EnemyGroup == "democrat") {
+			enemy = GameManager.instance.enemyList[1];
+		//otherwise, select at random
+		} else {
+			int selectEnemy = Random.Range(0,3);
+			enemy = GameManager.instance.enemyList[Random.Range(0,GameManager.instance.enemyList.Length)];
+		}
+		
 		
 		//Generate the path & filename of the required sprites
 		string enemyBombSpriteString = "bomb_images/bomb_" + enemy;
@@ -53,13 +60,17 @@ public class DT_Bomb_Creator : MonoBehaviour {
 
 	void Update () {
 		//If bombs are not being dropped & the user presses spacebar, call the function
-		if (bombsAreBeingDropped == false && Input.GetKey (KeyCode.Space)) {
-			bombsAreBeingDropped = true;	
-		//Call the function to drop bombs (how many bombs to drop, seconds to wait between bombs)
+		if (GameManager.instance.bombsAreBeingDropped == false && Input.GetKey (KeyCode.Space)) {
+
+			GameManager.instance.bombsAreBeingDropped = true;	
+
+			Debug.Log("Lives left is " + GameManager.instance.livesLeft);
+
+			//Call the function to drop bombs (how many bombs to drop, seconds to wait between bombs)
 			StartCoroutine(StartDroppingBombs(numBombs, bombTiming));
 		}
 
-		if (moveBomberRunning == false && bombsAreBeingDropped == true) {
+		if (moveBomberRunning == false && GameManager.instance.bombsAreBeingDropped == true) {
 			moveBomberRunning = true;
 			StartCoroutine("moveBomber");	
 		}
@@ -75,7 +86,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 		newBomberPosition.x = randomSelectDestination;
 
 		while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
-			if (bombsAreBeingDropped == true) {
+			if (GameManager.instance.bombsAreBeingDropped == true) {
 				transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
 			}
 			yield return new WaitForEndOfFrame();	
@@ -93,10 +104,10 @@ public class DT_Bomb_Creator : MonoBehaviour {
 		for (var i=0; i < numberOfBombsToDrop; i++) {
 
 			//Get the current number of lives
-			var LivesCount = GameObject.FindWithTag("Ground").GetComponent<ground_detection>();
+			var LivesCount = GameManager.instance.livesLeft;
 			
 			//If numberOfLives (static var in this script) is equal to lifecount, than a bomb hasn't been missed yet.
-			if (numberOfLives == LivesCount.livesLeft) {
+			if (GameManager.instance.bombsAreBeingDropped) {
 			
 				//Create a vector that is bomber's position but 1F lower on the y axis.
 				var bombDropLocation = transform.position;
@@ -109,17 +120,17 @@ public class DT_Bomb_Creator : MonoBehaviour {
 				yield return new WaitForSeconds(interval);
 			} else {
 				//decrement numberOfLives & stop dropping bombs
-				numberOfLives--;
+				GameManager.instance.livesLeft--;
+
 				//Slow down the bomg frequency
 				bombTiming = bombTiming + bombTiming * .1f; 
-				bombsAreBeingDropped = false;
 				break;
 			}
 		}
 
 		//Level Cleared
 		//Update flag so the game knows bombs are no longer being dropped
-		bombsAreBeingDropped = false;
+		GameManager.instance.bombsAreBeingDropped = false;
 
 		//increase bomb number & frequency
 		numBombs = numBombs + numBombs * .25f; 

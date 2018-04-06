@@ -60,14 +60,17 @@ Game Plan:
 
 	Version.03: Add scaffolding
 		To do:
-			Allow user to select their specific enemy or left/right leaning enemy (or random)
 			Keep high score table
 
 		Done:
-			Add Main Menu (and make options respond to clicks)
+			Add Main Menu Scene & Options (and add click listeners)
 			Build framework for Studio splash screen
 			Re-organized folder structure (which broke everything...)
 			Fixed the broken things from Version .03 (Need to read up on RESOURCES folder)
+			Adjust code to include a Game Manager Singleton
+			Allow user to select their specific enemy or left/right leaning enemy (or random)
+			Allow User to restart game after losing
+
 
 	Version.04: Add some style
 		To do:
@@ -79,6 +82,7 @@ Game Plan:
 			Improve Graphics
 		Done: 
 
+
 	Version.05: Build a network
 		To do:
 			Add *global* high score screen
@@ -86,10 +90,18 @@ Game Plan:
 
 		Done: 
 
-	Version .06: Code Review
+
+	Version.06: Add sounds
+		To Do:
+			Add sound effects
+			Add cutscene audio
+			Add game audio
+			
+
+	Version .07: Code Review
 		To do:
-		Improve file structure
-		Improve code (Create a Game Manager Singleton?)
+			Improve file structure
+			Improve code
 
 		Done: 
 

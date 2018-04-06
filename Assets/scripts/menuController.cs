@@ -14,6 +14,10 @@ public class menuController : MonoBehaviour {
 	[SerializeField]
 	private Button democratButton;
 	[SerializeField]
+	
+	private Button randomButton;
+
+	[SerializeField]
 	private Button highscoreButton;
 
 	// Use this for initialization
@@ -21,23 +25,28 @@ public class menuController : MonoBehaviour {
         startGameButton.onClick.AddListener(StartGameClick);
 		republicanButton.onClick.AddListener(RepublicanClick);
 		democratButton.onClick.AddListener(DemocratClick);
+		randomButton.onClick.AddListener(RandomClick);
 		highscoreButton.onClick.AddListener(HighscoreClick);
 	}
 	
     void StartGameClick() {
         Debug.Log("You have clicked the Start Game Button!");
+		GameManager.instance.resetGame();
 		SceneManager.LoadScene("Level_1");
     }
 
 	void RepublicanClick() {
-        Debug.Log("You have clicked the Republican Button!");
-		//Update flag so when game starts the player gets a republican opponent
+		GameManager.instance.EnemyGroup = "republican";
     }
 
 	void DemocratClick() {
-        Debug.Log("You have clicked the Democrat Button!");
-		//Update flag so when game starts the player gets a democrat opponent
+		GameManager.instance.EnemyGroup = "democrat";
     }
+
+	void RandomClick() {
+		GameManager.instance.EnemyGroup = "";
+    }
+
 
 	void HighscoreClick() {
         Debug.Log("You have clicked the High Score Button!");

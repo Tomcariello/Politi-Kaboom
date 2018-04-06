@@ -5,7 +5,6 @@ using UnityEngine.Audio;
 
 public class playerController : MonoBehaviour {
 
-	public int score = 0;
 	public AudioSource bombCaughtSound;
 
 	void Start() {
@@ -29,7 +28,7 @@ public class playerController : MonoBehaviour {
 			//Destroy the bomb
 			Destroy(coll.gameObject);
 			//increment the score
-			score++;
+			GameManager.instance.score++;
 			//Play Sound
 			bombCaughtSound.PlayDelayed(44100);
 		}

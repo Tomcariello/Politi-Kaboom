@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class StudioScreenController : MonoBehaviour {
 
-	// Use this for initialization
-
     void Start()
     {
         StartCoroutine(FadeAndAdvance());
