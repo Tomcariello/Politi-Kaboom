@@ -14,7 +14,7 @@ public class StudioScreenController : MonoBehaviour {
     {
         print(Time.time);
         yield return new WaitForSecondsRealtime(3);
-     	SceneManager.LoadScene("main_menu");
+     	SceneManager.LoadScene("MainMenu");
 
     }
 

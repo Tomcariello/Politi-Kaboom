@@ -58,47 +58,49 @@ Game Plan:
 		Fixed logic so the bomber only moves while bombs are being dropped
 		Make it so the Barrel cannot topple over
 
-	Version.03: Add scaffolding
-		To do:
-			Keep high score table
-
-		Done:
-			Add Main Menu Scene & Options (and add click listeners)
-			Build framework for Studio splash screen
-			Re-organized folder structure (which broke everything...)
-			Fixed the broken things from Version .03 (Need to read up on RESOURCES folder)
-			Adjust code to include a Game Manager Singleton
-			Allow user to select their specific enemy or left/right leaning enemy (or random)
-			Allow User to restart game after losing
-
+	Version.03: Add scaffolding (DONE)
+		Add Main Menu Scene & Options (and add click listeners)
+		Build framework for Studio splash screen
+		Re-organized folder structure (which broke everything...)
+		Fixed the broken things from Version .03 (Need to read up on RESOURCES folder)
+		Adjust code to include a Game Manager Singleton
+		Allow user to select their specific enemy or left/right leaning enemy (or random)
+		Allow User to restart game after losing
+		Maintain local high score across sessions
+		Maintain political party preference across sessions
 
 	Version.04: Add some style
 		To do:
 			Add style to Studio splash screen
-			Add funny/info screen when truth bomb is missed (quote? bomb dropper does something funny?)
-			Insert Cut Scene (or something) in between stages; be funny (dammit!)
-			Improve Sounds
-			Add Music
+			Add funny/info screen when bomb is missed (quote? bomb dropper does something funny?) - Variety, random from array?
+			Insert short animation between stages; be funny (dammit!)
 			Improve Graphics
+			Alert User if they set a high score at the end of the game
 		Done: 
+			Add High Score page & populate it with the high score
 
 
-	Version.05: Build a network
+	Version.05: Fix the bomber
+		Ensure bomber stays within bounds
+		Optimize the screen size & be sure things scale properly
+
+
+	Version.06: Build a network
 		To do:
-			Add *global* high score screen
+			Add *global* high score screen (currently it is just local)
 			Add Facebook sharing
 
 		Done: 
 
 
-	Version.06: Add sounds
+	Version.07: Add sounds
 		To Do:
 			Add sound effects
 			Add cutscene audio
 			Add game audio
 			
 
-	Version .07: Code Review
+	Version .08: Code Review
 		To do:
 			Improve file structure
 			Improve code

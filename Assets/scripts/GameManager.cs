@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour {
 		} else {
 			DestroyObject(gameObject);
 		}
+
+		GameManager.instance.EnemyGroup = GamePreferences.GetPoliticalParty();
 	}
 
 	public void resetGame() {

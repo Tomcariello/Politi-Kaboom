@@ -64,8 +64,6 @@ public class DT_Bomb_Creator : MonoBehaviour {
 
 			GameManager.instance.bombsAreBeingDropped = true;	
 
-			Debug.Log("Lives left is " + GameManager.instance.livesLeft);
-
 			//Call the function to drop bombs (how many bombs to drop, seconds to wait between bombs)
 			StartCoroutine(StartDroppingBombs(numBombs, bombTiming));
 		}

@@ -23,8 +23,13 @@ public class livesCounter : MonoBehaviour {
 		if(GameManager.instance.livesLeft <= 0){
 			//Add some style here. SF2 "You lose" screen? High score table? Something...
 
+			//Check for High Scores
+			if (GameManager.instance.score > GamePreferences.GetHighScoreValue()) {
+				GamePreferences.SetHighScoreValue( GameManager.instance.score );
+			}
+
 			//Then return to main menu
-			SceneManager.LoadScene("main_menu");
+			SceneManager.LoadScene("MainMenu");
 		}
 	}
 }

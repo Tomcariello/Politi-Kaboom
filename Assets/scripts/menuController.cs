@@ -30,27 +30,36 @@ public class menuController : MonoBehaviour {
 	}
 	
     void StartGameClick() {
-        Debug.Log("You have clicked the Start Game Button!");
 		GameManager.instance.resetGame();
-		SceneManager.LoadScene("Level_1");
+		SceneManager.LoadScene("Gameplay");
     }
 
 	void RepublicanClick() {
 		GameManager.instance.EnemyGroup = "republican";
+		SavePoliticalPartyPreference("republican");
     }
 
 	void DemocratClick() {
 		GameManager.instance.EnemyGroup = "democrat";
+		SavePoliticalPartyPreference("democrat");
     }
 
 	void RandomClick() {
 		GameManager.instance.EnemyGroup = "";
+		SavePoliticalPartyPreference("random");
     }
 
 
 	void HighscoreClick() {
         Debug.Log("You have clicked the High Score Button!");
 		//Load the high score screen
-		// SceneManager.LoadScene("High_Score");
+		SceneManager.LoadScene("Highscore");
     }
+
+	//Save political party preferences
+	void SavePoliticalPartyPreference(string party) {
+		GamePreferences.SetPoliticalParty( party );
+	}
+
+
 }
