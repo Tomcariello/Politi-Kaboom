@@ -28,7 +28,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 
 	void Start () {
 		string enemy;
-		PlayerPrefs.DeleteAll();
+		// PlayerPrefs.DeleteAll();
 
 		CloseQuotePanelButton.onClick.AddListener(CloseQuotePanel);
 
