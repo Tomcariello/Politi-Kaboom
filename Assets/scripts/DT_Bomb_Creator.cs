@@ -89,18 +89,18 @@ public class DT_Bomb_Creator : MonoBehaviour {
 	// //Coroutine to control the bomber's movement & animate smoothly
 	IEnumerator moveBomber() {
 
-		// float randomSelectDestination = Random.Range(-2.75f,15.5f);
+		float randomSelectDestination = Random.Range(-2.75f,15.5f);
 
-		// //Execute bomber movement
-		// Vector3 newBomberPosition = transform.position;
-		// newBomberPosition.x = randomSelectDestination;
+		//Execute bomber movement
+		Vector3 newBomberPosition = transform.position;
+		newBomberPosition.x = randomSelectDestination;
 
-		// while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
-		// 	if (GameManager.instance.bombsAreBeingDropped == true) {
-		// 		transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
-		// 	}
-		// 	yield return new WaitForEndOfFrame();	
-		// }
+		while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
+			if (GameManager.instance.bombsAreBeingDropped == true) {
+				transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
+			}
+			yield return new WaitForEndOfFrame();	
+		}
 		moveBomberRunning = false;
 		yield return null;
 	}
