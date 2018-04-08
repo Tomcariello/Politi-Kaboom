@@ -49,9 +49,7 @@ public class menuController : MonoBehaviour {
 		SavePoliticalPartyPreference("random");
     }
 
-
 	void HighscoreClick() {
-        Debug.Log("You have clicked the High Score Button!");
 		//Load the high score screen
 		SceneManager.LoadScene("Highscore");
     }

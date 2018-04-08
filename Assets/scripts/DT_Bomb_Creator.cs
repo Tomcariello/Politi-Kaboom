@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
@@ -12,6 +13,13 @@ public class DT_Bomb_Creator : MonoBehaviour {
 	public GameObject barrel; //creates a reference to the barrel (to be assigned in unity GUI)
 	public GameObject soundEffect; //creates a reference to the barrel (to be assigned in unity GUI)
 	public AudioSource enemyBetweenRoundAudio;
+	public GameObject QuotePanel;
+
+	[SerializeField]
+	public Text QuotePanelText;
+
+	[SerializeField]
+	public Button CloseQuotePanelButton;
 
 	//Initial Game Variables
 	public float numBombs = 25; //Set number of bombs to drop on initial stage
@@ -20,6 +28,9 @@ public class DT_Bomb_Creator : MonoBehaviour {
 
 	void Start () {
 		string enemy;
+		PlayerPrefs.DeleteAll();
+
+		CloseQuotePanelButton.onClick.AddListener(CloseQuotePanel);
 
 		//If user selected republican, play against trump
 		if (GameManager.instance.EnemyGroup == "republican") {
@@ -60,7 +71,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 
 	void Update () {
 		//If bombs are not being dropped & the user presses spacebar, call the function
-		if (GameManager.instance.bombsAreBeingDropped == false && Input.GetKey (KeyCode.Space)) {
+		if (GameManager.instance.bombsAreBeingDropped == false && GameManager.instance.canDropBombs == true && Input.GetKey (KeyCode.Space)) {
 
 			GameManager.instance.bombsAreBeingDropped = true;	
 
@@ -68,27 +79,28 @@ public class DT_Bomb_Creator : MonoBehaviour {
 			StartCoroutine(StartDroppingBombs(numBombs, bombTiming));
 		}
 
+		//Start moving the bomber once bombs are being dropped
 		if (moveBomberRunning == false && GameManager.instance.bombsAreBeingDropped == true) {
 			moveBomberRunning = true;
-			StartCoroutine("moveBomber");	
+			StartCoroutine("moveBomber");
 		}
 	}
 
 	// //Coroutine to control the bomber's movement & animate smoothly
 	IEnumerator moveBomber() {
 
-		float randomSelectDestination = Random.Range(-2.75f,15.5f);
+		// float randomSelectDestination = Random.Range(-2.75f,15.5f);
 
-		//Execute bomber movement
-		Vector3 newBomberPosition = transform.position;
-		newBomberPosition.x = randomSelectDestination;
+		// //Execute bomber movement
+		// Vector3 newBomberPosition = transform.position;
+		// newBomberPosition.x = randomSelectDestination;
 
-		while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
-			if (GameManager.instance.bombsAreBeingDropped == true) {
-				transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
-			}
-			yield return new WaitForEndOfFrame();	
-		}
+		// while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
+		// 	if (GameManager.instance.bombsAreBeingDropped == true) {
+		// 		transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
+		// 	}
+		// 	yield return new WaitForEndOfFrame();	
+		// }
 		moveBomberRunning = false;
 		yield return null;
 	}
@@ -113,6 +125,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 
 				//create & drop the bomb
 				Instantiate(bomb_Prefab, bombDropLocation, transform.rotation);
+				GameManager.instance.liveBombs++;
 
 				//wait in between bombs based on interval value
 				yield return new WaitForSeconds(interval);
@@ -120,18 +133,52 @@ public class DT_Bomb_Creator : MonoBehaviour {
 				//decrement numberOfLives & stop dropping bombs
 				GameManager.instance.livesLeft--;
 
-				//Slow down the bomg frequency
+				if (GameManager.instance.livesLeft > 0) {
+					LoadQuotePanel("dead");
+				}
+
+				//Slow down the bomb frequency
 				bombTiming = bombTiming + bombTiming * .1f; 
 				break;
 			}
 		}
 
-		//Level Cleared
+		//Last bomb dropped
 		//Update flag so the game knows bombs are no longer being dropped
 		GameManager.instance.bombsAreBeingDropped = false;
 
 		//increase bomb number & frequency
 		numBombs = numBombs + numBombs * .25f; 
 		bombTiming = bombTiming - bombTiming * .1f; 
+	}
+
+	public void LoadQuotePanel(string state) {
+		//Pause the action
+		GameManager.instance.canDropBombs = false;
+
+		if (state == "dead") {
+			QuotePanelText.text = "You died. Loser.";
+		} else if (state == "alive"){
+			QuotePanelText.text = "You got lucky. Get ready for more!";
+		} else	{
+			QuotePanelText.text = "You set a high score! Congratulations!";
+		}
+
+		//Display Quote Panel
+		QuotePanel.SetActive(true);
+		Debug.Log("Panel Displayed");
+
+	}
+
+	void CloseQuotePanel() {
+
+		//If the user is out of lives, they must have set the high score to get here. Return them to the Main Menu
+		if (GameManager.instance.livesLeft <= 0){
+			GameManager.instance.canDropBombs = true;
+			SceneManager.LoadScene("MainMenu");
+		} else {
+			GameManager.instance.canDropBombs = true;
+			QuotePanel.SetActive(false);
+		}
 	}
 }

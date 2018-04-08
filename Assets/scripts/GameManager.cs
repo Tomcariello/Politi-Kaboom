@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour {
 
 	public bool bombsAreBeingDropped = false;
 
+	public bool canDropBombs = true;
+
+	public int liveBombs = 0;
+
 	public string[] enemyList = new string[] { "trump","hillary","putin" };
 
 	// Use this for initialization

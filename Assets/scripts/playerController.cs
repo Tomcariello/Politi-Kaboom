@@ -31,6 +31,14 @@ public class playerController : MonoBehaviour {
 			GameManager.instance.score++;
 			//Play Sound
 			bombCaughtSound.PlayDelayed(44100);
+
+			GameManager.instance.liveBombs--;
+
+			//If LAST bomb of this set, trigger quote
+			if ( GameManager.instance.liveBombs == 0 ) {
+			    GameObject getBomber = GameObject.Find("bomber");
+				getBomber.GetComponent<DT_Bomb_Creator>().LoadQuotePanel("alive");
+			}
 		}
 	}
 }

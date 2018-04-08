@@ -72,17 +72,21 @@ Game Plan:
 	Version.04: Add some style
 		To do:
 			Add style to Studio splash screen
-			Add funny/info screen when bomb is missed (quote? bomb dropper does something funny?) - Variety, random from array?
-			Insert short animation between stages; be funny (dammit!)
 			Improve Graphics
-			Alert User if they set a high score at the end of the game
+
 		Done: 
 			Add High Score page & populate it with the high score
+			Add funny/info screen when bomb is missed
+			Insert funny/info screen when bomb series is completed
+			Fix SCORE text Gameplay
+			Fix LIVES text in Gameplay
+			Alert User if they set a high score at the end of the game
 
 
-	Version.05: Fix the bomber
+	Version.05: Fix things
 		Ensure bomber stays within bounds
 		Optimize the screen size & be sure things scale properly
+
 
 
 	Version.06: Build a network
