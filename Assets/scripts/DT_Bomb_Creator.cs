@@ -21,13 +21,51 @@ public class DT_Bomb_Creator : MonoBehaviour {
 	[SerializeField]
 	public Button CloseQuotePanelButton;
 
+	public string[] PlayerDiedQuotes;
+	public string[] PlayerAliveQuotes;
+
 	//Initial Game Variables
 	public float numBombs = 25; //Set number of bombs to drop on initial stage
 	public float bombTiming = .5f; //Set speed to drop bombs on initial stage
 	public bool moveBomberRunning = false; //track if the bomber is currently moving
 
+	public string enemy;
+
+	//Quote Arrays for each character
+	private string[] trumpPlayerDiedQuotes = {
+			"Loser. I caught 9,548,542 on my first try.", 
+			"Oh, Little Player. You must feel bad after that performance. I know I would",
+			"Are you even trying?"
+		};
+	private string[] trumpPlayerAliveQuotes = {
+			"You got lucky. Now I'm bringing out the big guns.", 
+			"Inconcievable! What? Yes, you're right, I don't know that that word means.", 
+			"In the long run, I can tweet much more than you can catch. You have to sleep sometime."
+		};
+
+	private string[] hillaryPlayerDiedQuotes = {
+			"That performance was deplorable.",
+			"Now that I'm done with you I'm going to give a million dollar speech on Wall St.",
+			"I'll just add your name to my list..."
+		};
+	private string[] hillaryPlayerAliveQuotes = {
+			"Where's Debbie Wasserman Schultz when you need her?",
+			"Are you still here? Sorry, I deleting emails.",
+			"hillary Alive 3"
+		};
+
+	private string[] putinPlayerDiedQuotes = {
+			"How unfortunate that you would die of radiation poisoning. I demand an investigation.",
+			"In Russia, game plays you!",
+			"We were just getting to know each other..."
+		};
+	private string[] putinPlayerAliveQuotes = {
+			"I guess polonium-210 won't do the job. Dmitri, bring me the Polonium-5849658.",
+			"You are resilient. Perhaps you'd like a job in the KGB?",
+			"I may have to throw you in jail if you continue to resist."
+		};
+
 	void Start () {
-		string enemy;
 		// PlayerPrefs.DeleteAll();
 
 		CloseQuotePanelButton.onClick.AddListener(CloseQuotePanel);
@@ -44,8 +82,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 			enemy = GameManager.instance.enemyList[Random.Range(0,GameManager.instance.enemyList.Length)];
 		}
 		
-		
-		//Generate the path & filename of the required sprites
+		//Generate the asset strings selected enemy
 		string enemyBombSpriteString = "bomb_images/bomb_" + enemy;
 		string enemyBomberSpriteString = "bomber_images/bomber_" + enemy;
 		string enemyBackgroundSpriteString = "background_images/background_" + enemy;
@@ -156,18 +193,30 @@ public class DT_Bomb_Creator : MonoBehaviour {
 		//Pause the action
 		GameManager.instance.canDropBombs = false;
 
+		//Set the quote arrays according to the current enemy
+		if (enemy == "trump") {
+			PlayerDiedQuotes = trumpPlayerDiedQuotes;
+			PlayerAliveQuotes = trumpPlayerAliveQuotes;
+		} else if (enemy == "hillary") {
+			PlayerDiedQuotes = hillaryPlayerDiedQuotes;
+			PlayerAliveQuotes = hillaryPlayerAliveQuotes;
+		} else if (enemy == "putin") {
+			PlayerDiedQuotes = putinPlayerDiedQuotes;
+			PlayerAliveQuotes = putinPlayerAliveQuotes;
+		}
+
 		if (state == "dead") {
-			QuotePanelText.text = "You died. Loser.";
+			string quote = PlayerDiedQuotes[Random.Range(0,PlayerDiedQuotes.Length)];
+			QuotePanelText.text = quote;
 		} else if (state == "alive"){
-			QuotePanelText.text = "You got lucky. Get ready for more!";
+			string quote = PlayerAliveQuotes[Random.Range(0,PlayerAliveQuotes.Length)];
+			QuotePanelText.text = quote;
 		} else	{
-			QuotePanelText.text = "You set a high score! Congratulations!";
+			QuotePanelText.text = "You set a new high score of " + GameManager.instance.score +  "! Congratulations!";
 		}
 
 		//Display Quote Panel
 		QuotePanel.SetActive(true);
-		Debug.Log("Panel Displayed");
-
 	}
 
 	void CloseQuotePanel() {

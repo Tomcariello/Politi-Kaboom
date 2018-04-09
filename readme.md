@@ -72,7 +72,7 @@ Game Plan:
 	Version.04: Add some style
 		To do:
 			Add style to Studio splash screen
-			Improve Graphics
+			Improve Graphics across the board
 
 		Done: 
 			Add High Score page & populate it with the high score
@@ -81,13 +81,15 @@ Game Plan:
 			Fix SCORE text Gameplay
 			Fix LIVES text in Gameplay
 			Alert User if they set a high score at the end of the game
+			Create Enemy specific quotes for quote events
+			Randomly pull Enemy specific quotes for all quote events
 
 
-	Version.05: Improve the gameplay experience
+	Version.05: Improve the gameplay experience 
 		Ensure bomber stays within bounds
 		Optimize the screen size & be sure things scale properly
-		Create Enemy specific quotes for quote events
-		Randomly pull Enemy specific quotes for all quote events
+		Look into profiling to address bottlenecks
+		Improve the current quote array implementation
 
 
 
