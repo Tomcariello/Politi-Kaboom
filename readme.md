@@ -83,9 +83,11 @@ Game Plan:
 			Alert User if they set a high score at the end of the game
 
 
-	Version.05: Fix things
+	Version.05: Improve the gameplay experience
 		Ensure bomber stays within bounds
 		Optimize the screen size & be sure things scale properly
+		Create Enemy specific quotes for quote events
+		Randomly pull Enemy specific quotes for all quote events
 
 
 
