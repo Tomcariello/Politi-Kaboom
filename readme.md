@@ -83,13 +83,16 @@ Game Plan:
 			Alert User if they set a high score at the end of the game
 			Create Enemy specific quotes for quote events
 			Randomly pull Enemy specific quotes for all quote events
+			Ensure bomber stays within bounds
+			Align camera settings across scenes
 
 
 	Version.05: Improve the gameplay experience 
-		Ensure bomber stays within bounds
-		Optimize the screen size & be sure things scale properly
-		Look into profiling to address bottlenecks
-		Improve the current quote array implementation
+		To do:
+			Optimize the screen size & be sure things scale properly
+			Look into profiling to address bottlenecks
+			Improve the current quote array implementation
+			BUG: The game does not recognize if you miss the LAST BOMB IN A SET
 
 
 

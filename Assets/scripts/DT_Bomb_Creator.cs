@@ -126,7 +126,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 	// //Coroutine to control the bomber's movement & animate smoothly
 	IEnumerator moveBomber() {
 
-		float randomSelectDestination = Random.Range(-2.75f,15.5f);
+		float randomSelectDestination = Random.Range(-14f,14f);
 
 		//Execute bomber movement
 		Vector3 newBomberPosition = transform.position;
