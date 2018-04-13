@@ -153,7 +153,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 			//Get the current number of lives
 			var LivesCount = GameManager.instance.livesLeft;
 			
-			//If numberOfLives (static var in this script) is equal to lifecount, than a bomb hasn't been missed yet.
+			//If bombs are currently being dropped
 			if (GameManager.instance.bombsAreBeingDropped) {
 			
 				//Create a vector that is bomber's position but 1F lower on the y axis.
@@ -167,9 +167,6 @@ public class DT_Bomb_Creator : MonoBehaviour {
 				//wait in between bombs based on interval value
 				yield return new WaitForSeconds(interval);
 			} else {
-				//decrement numberOfLives & stop dropping bombs
-				GameManager.instance.livesLeft--;
-
 				if (GameManager.instance.livesLeft > 0) {
 					LoadQuotePanel("dead");
 				}

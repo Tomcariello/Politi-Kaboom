@@ -26,7 +26,6 @@ public class livesCounter : MonoBehaviour {
 			//Check for High Scores 
 			if (GameManager.instance.score > GamePreferences.GetHighScoreValue()) {
 				stopUpdate = true;
-				Debug.Log("You set a high score");
 				//& update accordingly
 				GamePreferences.SetHighScoreValue( GameManager.instance.score );
 				//Alert User
@@ -34,7 +33,6 @@ public class livesCounter : MonoBehaviour {
 				getBomber.GetComponent<DT_Bomb_Creator>().LoadQuotePanel("highscore");
 			} else {
 				//return to main menu
-				Debug.Log("Return to main menu");
 				SceneManager.LoadScene("MainMenu");
 			}
 		}

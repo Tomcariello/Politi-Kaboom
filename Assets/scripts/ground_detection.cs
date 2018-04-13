@@ -18,6 +18,9 @@ public class ground_detection : MonoBehaviour {
 			for (var i = 0; i < getAllBombs.Length; i++) {
 				Destroy(getAllBombs[i]);	
 			}
+
+			//Decrement the lives counter
+			GameManager.instance.livesLeft--;
 		}
 	}
 }

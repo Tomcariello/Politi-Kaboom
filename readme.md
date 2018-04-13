@@ -85,6 +85,9 @@ Game Plan:
 			Randomly pull Enemy specific quotes for all quote events
 			Ensure bomber stays within bounds
 			Align camera settings across scenes
+			
+			Bugfix: The game did not decrement lives counter if you miss the LAST BOMB IN A SET
+			Added Fade-In animation to studio scene & main menu
 
 
 	Version.05: Improve the gameplay experience 
@@ -92,8 +95,7 @@ Game Plan:
 			Optimize the screen size & be sure things scale properly
 			Look into profiling to address bottlenecks
 			Improve the current quote array implementation
-			BUG: The game does not recognize if you miss the LAST BOMB IN A SET
-
+			
 
 
 	Version.06: Build a network
