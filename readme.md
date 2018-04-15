@@ -69,39 +69,36 @@ Game Plan:
 		Maintain local high score across sessions
 		Maintain political party preference across sessions
 
-	Version.04: Add some style
-		To do:
-			Add style to Studio splash screen
-			Improve Graphics across the board
-
-		Done: 
-			Add High Score page & populate it with the high score
-			Add funny/info screen when bomb is missed
-			Insert funny/info screen when bomb series is completed
-			Fix SCORE text Gameplay
-			Fix LIVES text in Gameplay
-			Alert User if they set a high score at the end of the game
-			Create Enemy specific quotes for quote events
-			Randomly pull Enemy specific quotes for all quote events
-			Ensure bomber stays within bounds
-			Align camera settings across scenes
-			
-			Bugfix: The game did not decrement lives counter if you miss the LAST BOMB IN A SET
-			Added Fade-In animation to studio scene & main menu
+	Version.04: Add some style (DONE)
+		Add High Score page & populate it with the high score
+		Add funny/info screen when bomb is missed
+		Insert funny/info screen when bomb series is completed
+		Fix SCORE text Gameplay
+		Fix LIVES text in Gameplay
+		Alert User if they set a high score at the end of the game
+		Create Enemy specific quotes for quote events
+		Randomly pull Enemy specific quotes for all quote events
+		Ensure bomber stays within bounds
+		Align camera settings across scenes
+		Bugfix: The game did not decrement lives counter if you miss the LAST BOMB IN A SET
+		Added Fade-In animation to studio scene & main menu
+		Commissioned artwork for Trump & Hillary stages.
+		Animate the bomber while maintaining gamplay vector3 applications
+		Add style to Studio splash screen; Added "Typing" Effect on Studio screen
 
 
 	Version.05: Improve the gameplay experience 
 		To do:
+			Improve Graphics across the board
 			Optimize the screen size & be sure things scale properly
 			Look into profiling to address bottlenecks
 			Improve the current quote array implementation
 			
 
-
 	Version.06: Build a network
 		To do:
 			Add *global* high score screen (currently it is just local)
-			Add Facebook sharing
+			Add Facebook/Twitter sharing(?)
 
 		Done: 
 

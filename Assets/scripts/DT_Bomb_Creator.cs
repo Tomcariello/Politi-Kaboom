@@ -9,6 +9,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 
 	public GameObject bomb_Prefab; // creates a reference to the bomb_prefab (to be assigned in unity GUI)
 	public GameObject bomber; // creates a reference to the bomber (to be assigned in unity GUI)
+	public GameObject bomber_container; // creates a reference to the bomber (to be assigned in unity GUI)
 	public GameObject background; //creates a reference to the background (to be assigned in unity GUI)
 	public GameObject barrel; //creates a reference to the barrel (to be assigned in unity GUI)
 	public GameObject soundEffect; //creates a reference to the barrel (to be assigned in unity GUI)
@@ -50,7 +51,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 		};
 	private string[] hillaryPlayerAliveQuotes = {
 			"Where's Debbie Wasserman Schultz when you need her?",
-			"Are you still here? Sorry, I deleting emails.",
+			"Are you still here? Sorry, I was deleting emails.",
 			"hillary Alive 3"
 		};
 
@@ -107,7 +108,7 @@ public class DT_Bomb_Creator : MonoBehaviour {
 	}
 
 	void Update () {
-		//If bombs are not being dropped & the user presses spacebar, call the function
+		//If bombs are not being dropped & the user presses spacebar, run the code
 		if (GameManager.instance.bombsAreBeingDropped == false && GameManager.instance.canDropBombs == true && Input.GetKey (KeyCode.Space)) {
 
 			GameManager.instance.bombsAreBeingDropped = true;	
@@ -129,12 +130,12 @@ public class DT_Bomb_Creator : MonoBehaviour {
 		float randomSelectDestination = Random.Range(-14f,14f);
 
 		//Execute bomber movement
-		Vector3 newBomberPosition = transform.position;
+		Vector3 newBomberPosition = bomber_container.transform.position;
 		newBomberPosition.x = randomSelectDestination;
 
-		while(Mathf.Abs(transform.position.x - newBomberPosition.x) > 0.5) {
+		while(Mathf.Abs(bomber_container.transform.position.x - newBomberPosition.x) > 0.5) {
 			if (GameManager.instance.bombsAreBeingDropped == true) {
-				transform.position = Vector2.MoveTowards(transform.position, newBomberPosition, 7.0f * Time.deltaTime);
+				bomber_container.transform.position = Vector2.MoveTowards(bomber_container.transform.position, newBomberPosition, 7.0f * Time.deltaTime);
 			}
 			yield return new WaitForEndOfFrame();	
 		}
