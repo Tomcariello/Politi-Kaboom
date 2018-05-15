@@ -6,7 +6,9 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class DT_Bomb_Creator : MonoBehaviour {
-
+	public float barrelWidth = 68;
+	public float barrelHeight = 68;
+	
 	public GameObject bomb_Prefab; // creates a reference to the bomb_prefab (to be assigned in unity GUI)
 	public GameObject bomber; // creates a reference to the bomber (to be assigned in unity GUI)
 	public GameObject bomber_container; // creates a reference to the bomber (to be assigned in unity GUI)
@@ -94,14 +96,30 @@ public class DT_Bomb_Creator : MonoBehaviour {
 		Sprite enemyBombSprite = Resources.Load<Sprite>(enemyBombSpriteString);
 		Sprite enemyBomberSprite = Resources.Load<Sprite>(enemyBomberSpriteString);
 		Sprite enemyBackgroundSprite = Resources.Load<Sprite>(enemyBackgroundSpriteString);
-		Sprite enemyBarrelSprite = Resources.Load<Sprite>(enemyBarrelSpriteString);
+		// Sprite enemyBarrelSprite = Resources.Load<Sprite>(enemyBarrelSpriteString);
 		// Sprite enemsySoundEffect = Resources.Load<Sprite>(enemySoundEffectString);
 
+		//Setting up TRUMP will sliced spritesheet
+		Sprite[] characterSpriteArray = Resources.LoadAll<Sprite>(enemy + "_collection");
+
+		//Set the Character images
+	    for (int i = 0; i < characterSpriteArray.Length; i++) {
+			if (characterSpriteArray[i].name == "barrel") {
+				barrel.GetComponent<SpriteRenderer>().sprite = characterSpriteArray[i];
+			} else if (characterSpriteArray[i].name == "bomb") {
+				bomb_Prefab.GetComponent<SpriteRenderer>().sprite = characterSpriteArray[i];
+			// } else if (characterSpriteArray[i].name == "bomber") {
+			// 	bomber.GetComponent<SpriteRenderer>().sprite = characterSpriteArray[i];
+			// } else if (characterSpriteArray[i].name == "background") {
+			// 	background.GetComponent<SpriteRenderer>().sprite = characterSpriteArray[i];
+			}
+		}
+			
 		//Assign the correct enemy bomb to the bomb_prefab
-		bomb_Prefab.GetComponent<SpriteRenderer>().sprite = enemyBombSprite;
+		// bomb_Prefab.GetComponent<SpriteRenderer>().sprite = enemyBombSprite;
 		bomber.GetComponent<SpriteRenderer>().sprite = enemyBomberSprite;
 		background.GetComponent<SpriteRenderer>().sprite = enemyBackgroundSprite;
-		barrel.GetComponent<SpriteRenderer>().sprite = enemyBarrelSprite;
+		// barrel.GetComponent<SpriteRenderer>().sprite = enemyBarrelSprite;
 		// soundEffect.GetComponent<AudioSource>().clip = enemySoundEffect;
 
 		enemyBetweenRoundAudio = GetComponent<AudioSource>();
