@@ -37,7 +37,7 @@ public class playerController : MonoBehaviour {
 			//If LAST bomb of this set, trigger quote
 			if ( GameManager.instance.liveBombs == 0 ) {
 			    GameObject getBomber = GameObject.Find("bomber");
-				getBomber.GetComponent<DT_Bomb_Creator>().LoadQuotePanel("alive");
+				getBomber.GetComponent<Bomb_Creator>().LoadQuotePanel("alive");
 			}
 		}
 	}

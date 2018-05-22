@@ -30,7 +30,7 @@ public class livesCounter : MonoBehaviour {
 				GamePreferences.SetHighScoreValue( GameManager.instance.score );
 				//Alert User
 				GameObject getBomber = GameObject.Find("bomber");
-				getBomber.GetComponent<DT_Bomb_Creator>().LoadQuotePanel("highscore");
+				getBomber.GetComponent<Bomb_Creator>().LoadQuotePanel("highscore");
 			} else {
 				//return to main menu
 				SceneManager.LoadScene("MainMenu");

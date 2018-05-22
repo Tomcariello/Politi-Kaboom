@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 41eca793ab2ce3446955c337065c2336
+guid: 000f2eb87e8836242842d143056d307f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: torpedo
+    21300000: missile
     21300002: bomb
     21300004: barrel
+    21300006: background
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -85,21 +86,21 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: torpedo
+      name: missile
       rect:
         serializedVersion: 2
-        x: 266
-        y: 287
-        width: 139
-        height: 680
+        x: 130
+        y: 1718
+        width: 143
+        height: 684
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab1f53bf56f54124299eb75c0de89438
+      spriteID: fe29542a05776c04ab35fabdee4a5a79
       vertices: []
       indices: 
       edges: []
@@ -108,18 +109,18 @@ TextureImporter:
       name: bomb
       rect:
         serializedVersion: 2
-        x: 587
-        y: 447
-        width: 415
-        height: 360
+        x: 462
+        y: 1878
+        width: 417
+        height: 364
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 493dd5dfc5211cb48b003d208fce3ea7
+      spriteID: 57cf6c9e57b499b4890b07371389cab1
       vertices: []
       indices: 
       edges: []
@@ -128,18 +129,38 @@ TextureImporter:
       name: barrel
       rect:
         serializedVersion: 2
-        x: 1100
-        y: 415
-        width: 534
-        height: 424
+        x: 965
+        y: 1840
+        width: 536
+        height: 429
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f000eed8ddae047948cd8fa5e8e204
+      spriteID: ea30da301f200ab48b35498572528b50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 483
+        width: 1919
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0999684e0c6f8e443b75d30c096dc679
       vertices: []
       indices: 
       edges: []
@@ -147,7 +168,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1aef5a58f1e4d844887b58171fae20e0
+    spriteID: 69de8db5d2b15394eb26a406af64df7d
     vertices: []
     indices: 
     edges: []
